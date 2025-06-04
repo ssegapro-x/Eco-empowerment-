@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="CONTENT-TYPE"content="text/html;chartset=UTF-8">
+  <meta http-equiv="X-UA-Compatible"content="ie=edge">
+  <title>Eco Empowerment - Home</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background-color: #f0fdf4;
+      color: #333;
+    }
+   
+.lobster{
+  font-family:'lobster' ,cursive;
+  font-size:30px;
+  text-align:center;}
+    header {
+      background-color: #166534;
+      color: white;
+      padding: 15px 20px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header .menu-btn {
+      font-size: 24px;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    aside {
+  background-color: #065f46;
+  color: white;
+  width: 200px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: -220px;
+  padding: 20px 0;
+  transition: left 0.3s;
+  z-index: 2000;
+  box-shadow: 2px 0 6px rgba(0,0,0,0.2);
+}
+aside .close-btn {
+  display: block;
+  font-size: 24px;
+  text-align: left;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #047857;
+}
+
+
+    aside a {
+      display: block;
+      padding: 10px 20px;
+      color: white;
+      text-decoration: none;
+    }
+
+    aside a:hover {
+      background-color: #047857;
+    }
+
+    aside.show {
+      left: 0;
+    }
+
+    main {
+      margin-top: 60px;
+      padding: 20px;
+      margin-left: 0;
+      transition: margin-left 0.3s;
+    }
+
+aside.show {
+  left: 0;
+}
+
+    .hero {
+      background-color: #bbf7d0;
+      padding: 30px;
+      text-align: center;
+      border-radius: 12px;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      background-color: #166534;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 25px;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 15px;
+    }
+
+    .section {
+      background-color: white;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .section ul {
+      padding-left: 20px;
+    }
+
+    .section blockquote {
+      font-style: italic;
+      border-left: 4px solid #047857;
+      padding-left: 15px;
+      color: #444;
+    }
+
+    @media screen and (min-width: 768px) {
+      aside {
+        left: 0;
+      }
+      main {
+        margin-left: 200px;
+      }
+      .menu-btn {
+        display: none;
+      }
+    }
+    .gradient-text {
+    font-size: 60px;
+    background: linear-gradient(45deg, red, blue, green, yellow);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+  </style>
+</head>
+<body>
+
+  <header>
+    <span class="menu-btn" onclick="toggleSidebar()">☰</span>
+    <h1>Eco Empowerment</h1>
+    <div></div>
+  </header>
+
+  <aside id="sidebar">
+    <span class="close-btn" onclick="toggleSidebar()">✕</span>
+    <a href="index.html">🏠 Home</a>
+    <a href="about-eco.html">🌱 About</a>
+    <a href="eco-projects.html">📂 Projects</a>
+    <a href="eco-blog.html">📰 Blog</a>
+    <a href="eco-resources.html">📚 Resources</a>
+    <a href="get-involved.html">🤝 Get Involved</a>
+    <a href="eco-gallery.html">📸 Gallery</a>
+    <a href="contact.html">📬 Contact</a>
+  </aside>
+
+   
+
+  <main>
+    <section class="hero">
+      <h2>Empowering Young Minds to Protect the Planet</h2>
+      <p>Together, we can create a greener future through action, education, and awareness.</p>
+      <a href="eco-projects.html" class="btn">Explore Projects</a>
+    </section>
+
+    <section class="section">
+      <h3>Our Mission</h3>
+      <p>Eco Empowerment is a student-led initiative focused on environmental awareness and practical sustainability projects. 
+      We aim to inspire change, one action at a time.</p>
+    </section>
+
+    <section class="section">
+      <h3>🌳 Featured Project: Tree for Tomorrow</h3>
+      <p>We planted over 200 native trees in our school and community park to combat deforestation and educate others about local biodiversity.</p>
+      <p><a href="eco-projects.html">Learn more about our projects</a></p>
+    </section>
+
+    <section class="section">
+      <h3>🌎 Why It Matters</h3>
+      <p>Climate change, pollution, and deforestation threaten our planet and future. As young changemakers, we believe education and action go hand-in-hand to build a greener, fairer world for all.</p>
+    </section>
+
+    <section class="section">
+      <h3>💡 How We Empower Students</h3>
+      <ul>
+        <li>✅ Hands-on environmental projects</li>
+        <li>✅ Eco-education and awareness campaigns</li>
+        <li>✅ Clean-up drives and tree planting</li>
+        <li>✅ Peer-led leadership opportunities</li>
+      </ul>
+    </section>
+
+    <section class="section" style="text-align: center;">
+      <h3>🚀 Ready to Make a Difference?</h3>
+      <p>Whether you're a student, teacher, or nature lover, there's a place for you in our mission. Explore how you can contribute.</p>
+      <a href="get-involved.html" class="btn">Join Us Now</a>
+    </section>
+
+    <section class="section">
+      <h3>📢 What People Are Saying</h3>
+      <blockquote>"Being part of Eco Empowerment has opened my eyes to how much we can do together!" – Amina, Student Volunteer</blockquote>
+    </section>
+  </main>
+</div>
+  <script>
+  function toggleSidebar() {
+    document.getElementById('sidebar').classList.toggle('show');
+  }
+  
+ 
+</script>
+
+
+</body>
+</html>
