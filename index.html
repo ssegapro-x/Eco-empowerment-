@@ -141,6 +141,25 @@ aside.show {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+  .bottom-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      color: white;
+      font-size: 15px;
+      text-align: center;
+      background: green;
+      z-index: 999;
+    }
+    .text {
+      display: inline-block;
+      animation: fade 0.5s ease-in-out;
+    }
+    @keyframes fade {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
   </style>
 </head>
 <body>
@@ -209,13 +228,29 @@ aside.show {
       <h3>📢 What People Are Saying</h3>
       <blockquote>"Being part of Eco Empowerment has opened my eyes to how much we can do together!" – Prosper, Student Volunteer</blockquote>
     </section>
+ <div class="bottom-bar">
+      Your <div class="text" id="dynamicText">Welcome</div>
+    </div>
   </main>
 </div>
   <script>
   function toggleSidebar() {
     document.getElementById('sidebar').classList.toggle('show');
   }
-  
+  var messages = ["Environment", "Responsibility"];
+  var index = 0;
+
+  function changeText() {
+    var element = document.getElementById("dynamicText");
+    // Apply fade-out effect
+    element.style.animation = 'none'; // Reset animation
+    element.offsetHeight; // Trigger reflow
+    element.style.animation = 'fade 0.5s ease-in-out';
+    element.innerText = messages[index];
+    index = (index + 1) % messages.length;
+  }
+
+  setInterval(changeText, 2000);
  
 </script>
 
