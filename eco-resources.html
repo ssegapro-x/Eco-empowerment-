@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="CONTENT-TYPE"content="text/html;chartset=UTF-8">
+  <meta http-equiv="X-UA-Compatible"content="ie=edge">
+ <title>Eco Empowerment - Resources</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background-color: #f0fdf4;
+      color: #333;
+    }
+
+    header {
+      background-color: #166534;
+      color: white;
+      padding: 15px 20px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 20px;
+    }
+
+    .menu-btn {
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    aside {
+      background-color: #065f46;
+      color: white;
+      width: 200px;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      left: -220px;
+      padding-top: 10px;
+      transition: left 0.3s;
+      z-index: 2000;
+      box-shadow: 2px 0 6px rgba(0,0,0,0.2);
+    }
+
+    aside.show {
+      left: 0;
+    }
+
+    aside .close-btn {
+      display: block;
+      font-size: 24px;
+      text-align: left;
+      padding: 10px 20px;
+      cursor: pointer;
+      background-color: #047857;
+    }
+
+    aside a {
+      display: block;
+      padding: 10px 20px;
+      color: white;
+      text-decoration: none;
+    }
+
+    aside a:hover {
+      background-color: #047857;
+    }
+
+    main {
+      padding: 80px 20px 20px 20px;
+    }
+
+    section {
+      background-color: white;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #065f46;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    a.resource-link {
+      text-decoration: none;
+      color: #166534;
+      background-color: #d1fae5;
+      padding: 6px 10px;
+      border-radius: 6px;
+      display: inline-block;
+    }
+
+    a.resource-link:hover {
+      background-color: #bbf7d0;
+    }
+
+    @media screen and (min-width: 768px) {
+      .menu-btn {
+        display: none;
+      }
+      aside {
+        left: 0;
+      }
+      main {
+        margin-left: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <span class="menu-btn" onclick="toggleSidebar()">☰</span>
+    <h1>Eco Resources</h1>
+    <div></div>
+  </header>
+
+  <aside id="sidebar">
+    <span class="close-btn" onclick="toggleSidebar()">✕</span>
+    <a href="index.html">🏠 Home</a>
+    <a href="about-eco.html">🌱 About</a>
+    <a href="eco-projects.html">📂 Projects</a>
+    <a href="eco-blog.html">📰 Blog</a>
+    <a href="eco-resources.html">📚 Resources</a>
+    <a href="get-involved.html">🤝 Get Involved</a>
+    <a href="eco-gallery.html">📸 Gallery</a>
+    <a href="contact.html">📬 Contact</a>
+  </aside>
+
+  <main>
+    <section>
+      <h2>📥 Downloadable Materials</h2>
+      <ul>
+        <li><a href="https://drive.google.com/file/d/1AJd5wfkGjCM2qhyegMwqQ8Cxc1sbSMWW/view?usp=drivesdk" class="resource-link" download>Beginner's Guide to Going Green (PDF)</a></li>
+        <li><a href="reduce reuse recycle poster.png" class="resource-link" download>Reduce Reuse Recycle Poster</a></li>
+        
+      </ul>
+    </section>
+
+    <section>
+      <h2>🔗 Useful Links</h2>
+      <ul>
+        <li><a href="https://www.earthday.org" class="resource-link" target="_blank">EarthDay.org</a></li>
+        <li><a href="https://www.plasticfreejuly.org" class="resource-link" target="_blank">Plastic Free July</a></li>
+        <li><a href="https://www.wwf.org" class="resource-link" target="_blank">World Wildlife Fund</a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>📘 Learn More</h2>
+      <ul>
+        <li><a href="https://youtu.be/ifrHogDujXw?si=OCYyImSC7SeLQQTA" class="resource-link" target="_blank">Climate Change Explained (Video)</a></li>
+        <li><a href="https://climatekids.nasa.gov" class="resource-link" target="_blank">NASA Climate Kids</a></li>
+        <li><a href="https://www.epa.gov/students" class="resource-link" target="_blank">EPA for Students</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <script>
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('show');
+    }
+  </script>
+
+</body>
+</html>
