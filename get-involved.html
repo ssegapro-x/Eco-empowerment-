@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="CONTENT-TYPE"content="text/html;chartset=UTF-8">
+  <meta http-equiv="X-UA-Compatible"content="ie=edge">
+ <title>Eco Empowerment - Get Involved</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background-color: #f0fdf4;
+      color: #333;
+    }
+
+    header {
+      background-color: #166534;
+      color: white;
+      padding: 15px 20px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 20px;
+    }
+
+    .menu-btn {
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    aside {
+      background-color: #065f46;
+      color: white;
+      width: 200px;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      left: -220px;
+      padding-top: 10px;
+      transition: left 0.3s;
+      z-index: 2000;
+      box-shadow: 2px 0 6px rgba(0,0,0,0.2);
+    }
+
+    aside.show {
+      left: 0;
+    }
+
+    aside .close-btn {
+      display: block;
+      font-size: 24px;
+      text-align: left;
+      padding: 10px 20px;
+      cursor: pointer;
+      background-color: #047857;
+    }
+
+    aside a {
+      display: block;
+      padding: 10px 20px;
+      color: white;
+      text-decoration: none;
+    }
+
+    aside a:hover {
+      background-color: #047857;
+    }
+
+    main {
+      padding: 80px 20px 20px 20px;
+    }
+
+    section {
+      background-color: white;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #065f46;
+    }
+
+    .action-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 16px;
+      background-color: #166534;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+    }
+
+    .action-btn:hover {
+      background-color: #14532d;
+    }
+
+    @media screen and (min-width: 768px) {
+      .menu-btn {
+        display: none;
+      }
+      aside {
+        left: 0;
+      }
+      main {
+        margin-left: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <span class="menu-btn" onclick="toggleSidebar()">☰</span>
+    <h1>Get Involved</h1>
+    <div></div>
+  </header>
+
+  <aside id="sidebar">
+    <span class="close-btn" onclick="toggleSidebar()">✕</span>
+    <a href="index.html">🏠 Home</a>
+    <a href="about-eco.html">🌱 About</a>
+    <a href="eco-projects.html">📂 Projects</a>
+    <a href="eco-blog.html">📰 Blog</a>
+    <a href="eco-resources.html">📚 Resources</a>
+    <a href="get-involved.html">🤝 Get Involved</a>
+    <a href="eco-gallery.html">📸 Gallery</a>
+    <a href="contact.html">📬 Contact</a>
+  </aside>
+
+  <main>
+    <section>
+      <h2>🌿 Join Our Eco Club</h2>
+      <p>Become a member of our Eco Empowerment Club and participate in green projects, campaigns, and educational events. It's a great way to learn and lead!</p>
+      <a href="contact.html" class="action-btn">Join Now</a>
+    </section>
+
+    <section>
+      <h2>💰 Donate or Sponsor</h2>
+      <p>Help us grow our impact! Your donations or sponsorships can fund cleanups, tree planting, and eco-awareness programs.</p>
+      <a href="mailto:ecoempowerment@gmail.com" class="action-btn">Contact to Donate</a>
+    </section>
+
+    <section>
+      <h2>📣 Spread the Word</h2>
+      <p>Tell friends, family, and followers about our website and mission. Use posters, social media, or events to share our message!</p>
+      <a href="eco-resources.html" class="action-btn">Shareable Resources</a>
+    </section>
+
+    <section>
+      <h2>🌍 Start Something</h2>
+      <p>Start a project at your school or community. Use our resources, get ideas from our blog, and reach out — we’d love to support you!</p>
+      <a href="eco-projects.html" class="action-btn">Explore Project Ideas</a>
+    </section>
+  </main>
+
+  <script>
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('show');
+    }
+  </script>
+
+</body>
+</html>
