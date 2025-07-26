@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="CONTENT-TYPE"content="text/html;chartset=UTF-8">
+  <meta http-equiv="X-UA-Compatible"content="ie=edge">
+ <title>Eco Empowerment - Blog</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background-color: #f0fdf4;
+      color: #333;
+    }
+
+    header {
+      background-color: #166534;
+      color: white;
+      padding: 15px 20px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 20px;
+    }
+
+    .menu-btn {
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    aside {
+      background-color: #065f46;
+      color: white;
+      width: 200px;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      left: -220px;
+      padding-top: 10px;
+      transition: left 0.3s;
+      z-index: 2000;
+      box-shadow: 2px 0 6px rgba(0,0,0,0.2);
+    }
+
+    aside.show {
+      left: 0;
+    }
+
+    aside .close-btn {
+      display: block;
+      font-size: 24px;
+      text-align: left;
+      padding: 10px 20px;
+      cursor: pointer;
+      background-color: #047857;
+    }
+
+    aside a {
+      display: block;
+      padding: 10px 20px;
+      color: white;
+      text-decoration: none;
+    }
+
+    aside a:hover {
+      background-color: #047857;
+    }
+
+    main {
+      padding: 80px 20px 20px 20px;
+    }
+
+    .blog-post {
+      background-color: white;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .blog-post h3 {
+      margin-top: 0;
+    }
+
+    .blog-post small {
+      color: #666;
+    }
+
+    @media screen and (min-width: 768px) {
+      .menu-btn {
+        display: none;
+      }
+      aside {
+        left: 0;
+      }
+      main {
+        margin-left: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <span class="menu-btn" onclick="toggleSidebar()">☰</span>
+    <h1>Eco Blog</h1>
+    <div></div>
+  </header>
+
+  <aside id="sidebar">
+    <span class="close-btn" onclick="toggleSidebar()">✕</span>
+    <a href="index.html">🏠 Home</a>
+    <a href="about-eco.html">🌱 About</a>
+    <a href="eco-projects.html">📂 Projects</a>
+    <a href="eco-blog.html">📰 Blog</a>
+    <a href="eco-resources.html">📚 Resources</a>
+    <a href="get-involved.html">🤝 Get Involved</a>
+    <a href="eco-gallery.html">📸 Gallery</a>
+    <a href="contact.html">📬 Contact</a>
+  </aside>
+
+  <main>
+    <section class="blog-post">
+      <h3>🌍 Earth Day: What We Learned</h3>
+      <small>Posted: April 22, 2025</small>
+      <p>This year’s Earth Day was a major success! We held a tree pledge event, a quiz contest, and a recycled art exhibition that left everyone inspired.</p>
+    </section>
+
+    <section class="blog-post">
+      <h3>🧴 Say No to Plastics Week</h3>
+      <small>Posted: March 10, 2025</small>
+      <p>Our plastic-free challenge encouraged everyone to switch to reusable bottles and containers. Teachers joined in and it became a fun movement!</p>
+    </section>
+
+    <section class="blog-post">
+      <h3>🧹 200kg of Waste Cleared</h3>
+      <small>Posted: February 5, 2025</small>
+      <p>Volunteers came together for our monthly clean-up. We picked over 200kg of waste from the school surroundings and nearby parks!</p>
+    </section>
+
+    <section class="blog-post">
+      <h3>🎨 Poster Contest Winners</h3>
+      <small>Posted: January 18, 2025</small>
+      <p>The top 3 winners from our “Eco Art for Change” contest have been announced! Check out their powerful and colorful messages in the Gallery.</p>
+    </section>
+
+    <section class="blog-post">
+      <h3>📣 New Eco Club Launched</h3>
+      <small>Posted: December 1, 2024</small>
+      <p>We're proud to have launched a new Eco Club at Greenfield High. Weekly sessions and exciting activities are already in full swing!</p>
+    </section>
+  </main>
+
+  <script>
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('show');
+    }
+  </script>
+
+</body>
+</html>
