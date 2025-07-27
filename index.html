@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport"content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="CONTENT-TYPE"content="text/html;chartset=UTF-8">
-  <meta http-equiv="X-UA-Compatible"content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Eco Empowerment - Home</title>
   <style>
     body {
@@ -14,10 +14,12 @@
       color: #333;
     }
    
-.lobster{
-  font-family:'lobster' ,cursive;
-  font-size:30px;
-  text-align:center;}
+    .lobster {
+      font-family: 'Lobster', cursive;
+      font-size: 30px;
+      text-align: center;
+    }
+
     header {
       background-color: #166534;
       color: white;
@@ -39,27 +41,27 @@
     }
 
     aside {
-  background-color: #065f46;
-  color: white;
-  width: 200px;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: -220px;
-  padding: 20px 0;
-  transition: left 0.3s;
-  z-index: 2000;
-  box-shadow: 2px 0 6px rgba(0,0,0,0.2);
-}
-aside .close-btn {
-  display: block;
-  font-size: 24px;
-  text-align: left;
-  padding: 10px 20px;
-  cursor: pointer;
-  background-color: #047857;
-}
+      background-color: #065f46;
+      color: white;
+      width: 200px;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      left: -220px;
+      padding: 20px 0;
+      transition: left 0.3s;
+      z-index: 2000;
+      box-shadow: 2px 0 6px rgba(0,0,0,0.2);
+    }
 
+    aside .close-btn {
+      display: block;
+      font-size: 24px;
+      text-align: left;
+      padding: 10px 20px;
+      cursor: pointer;
+      background-color: #047857;
+    }
 
     aside a {
       display: block;
@@ -82,10 +84,6 @@ aside .close-btn {
       margin-left: 0;
       transition: margin-left 0.3s;
     }
-
-aside.show {
-  left: 0;
-}
 
     .hero {
       background-color: #bbf7d0;
@@ -135,13 +133,15 @@ aside.show {
         display: none;
       }
     }
+
     .gradient-text {
-    font-size: 60px;
-    background: linear-gradient(45deg, red, blue, green, yellow);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-  .bottom-bar {
+      font-size: 60px;
+      background: linear-gradient(45deg, red, blue, green, yellow);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .bottom-bar {
       position: fixed;
       bottom: 0;
       left: 0;
@@ -152,10 +152,12 @@ aside.show {
       background: green;
       z-index: 999;
     }
+
     .text {
       display: inline-block;
       animation: fade 0.5s ease-in-out;
     }
+
     @keyframes fade {
       0% { opacity: 0; }
       100% { opacity: 1; }
@@ -163,7 +165,6 @@ aside.show {
   </style>
 </head>
 <body>
-
   <header>
     <span class="menu-btn" onclick="toggleSidebar()">☰</span>
     <h1>Eco Empowerment</h1>
@@ -182,9 +183,7 @@ aside.show {
     <a href="contact.html">📬 Contact</a>
   </aside>
 
-   
-
-  <main>
+  <main id="main-content">
     <section class="hero">
       <h2>Empowering Young Minds to Protect the Planet</h2>
       <p>Together, we can create a greener future through action, education, and awareness.</p>
@@ -228,32 +227,50 @@ aside.show {
       <h3>📢 What People Are Saying</h3>
       <blockquote>"Being part of Eco Empowerment has opened my eyes to how much we can do together!" – Prosper, Student Volunteer</blockquote>
     </section>
- <div class="bottom-bar">
+
+    <div class="bottom-bar">
       Your <div class="text" id="dynamicText">Welcome</div>
     </div>
   </main>
-</div>
+
   <script>
-  function toggleSidebar() {
-    document.getElementById('sidebar').classList.toggle('show');
-  }
-  var messages = ["Environment", "Responsibility"];
-  var index = 0;
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('show');
+    }
 
-  function changeText() {
-    var element = document.getElementById("dynamicText");
-    // Apply fade-out effect
-    element.style.animation = 'none'; // Reset animation
-    element.offsetHeight; // Trigger reflow
-    element.style.animation = 'fade 0.5s ease-in-out';
-    element.innerText = messages[index];
-    index = (index + 1) % messages.length;
-  }
+    // Close sidebar on scroll
+    window.addEventListener('scroll', () => {
+      const sidebar = document.getElementById('sidebar');
+      if (sidebar.classList.contains('show')) {
+        sidebar.classList.remove('show');
+      }
+    });
 
-  setInterval(changeText, 2000);
- 
-</script>
+    // Close sidebar on clicking/tapping main content
+    document.getElementById('main-content').addEventListener('click', (event) => {
+      const sidebar = document.getElementById('sidebar');
+      // Prevent closing if clicking inside sidebar or menu button
+      if (!sidebar.contains(event.target) && !event.target.classList.contains('menu-btn')) {
+        if (sidebar.classList.contains('show')) {
+          sidebar.classList.remove('show');
+        }
+      }
+    });
 
+    // Dynamic text for bottom bar
+    var messages = ["Environment", "Responsibility"];
+    var index = 0;
 
+    function changeText() {
+      var element = document.getElementById("dynamicText");
+      element.style.animation = 'none'; // Reset animation
+      element.offsetHeight; // Trigger reflow
+      element.style.animation = 'fade 0.5s ease-in-out';
+      element.innerText = messages[index];
+      index = (index + 1) % messages.length;
+    }
+
+    setInterval(changeText, 2000);
+  </script>
 </body>
 </html>
