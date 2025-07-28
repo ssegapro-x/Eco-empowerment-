@@ -2,14 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport"content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="CONTENT-TYPE"content="text/html;chartset=UTF-8">
-  <meta http-equiv="X-UA-Compatible"content="ie=edge">
- <title>Eco Empowerment - Resources</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <title>Eco Empowerment - Resources</title>
   <style>
     body {
       margin: 0;
-      font-family: sans-serif;
+      font-family: 'Roboto', sans-serif;
       background-color: #f0fdf4;
       color: #333;
     }
@@ -35,6 +36,11 @@
     .menu-btn {
       font-size: 24px;
       cursor: pointer;
+    }
+
+    .menu-btn:focus, .close-btn:focus, .back-to-top:focus, a:focus {
+      outline: 2px solid #d1fae5;
+      outline-offset: 2px;
     }
 
     aside {
@@ -65,18 +71,73 @@
     }
 
     aside a {
-      display: block;
+      display: flex;
+      align-items: center;
       padding: 10px 20px;
       color: white;
       text-decoration: none;
+      transition: transform 0.2s;
     }
 
     aside a:hover {
       background-color: #047857;
+      transform: translateX(10px);
+    }
+
+    .nav-icon {
+      margin-right: 10px;
+    }
+
+    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .hero-content h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      max-width: 600px;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
 
     main {
       padding: 80px 20px 20px 20px;
+    }
+
+    .search-bar {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .search-bar input {
+      padding: 10px;
+      width: 100%;
+      max-width: 400px;
+      border: 1px solid #065f46;
+      border-radius: 6px;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    .search-bar input:focus {
+      border-color: #166534;
+      box-shadow: 0 0 5px rgba(22, 101, 52, 0.3);
     }
 
     section {
@@ -91,26 +152,139 @@
       color: #065f46;
     }
 
-    ul {
-      list-style: none;
-      padding-left: 0;
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
     }
 
-    li {
+    .resource-card {
+      background-color: #d1fae5;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .resource-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .resource-icon {
+      font-size: 2rem;
+      display: block;
       margin-bottom: 10px;
     }
 
-    a.resource-link {
-      text-decoration: none;
-      color: #166534;
-      background-color: #d1fae5;
-      padding: 6px 10px;
-      border-radius: 6px;
-      display: inline-block;
+    .resource-card h3 {
+      color: #065f46;
+      font-size: 1.2rem;
+      margin: 10px 0;
     }
 
-    a.resource-link:hover {
+    .resource-card p {
+      font-size: 0.9rem;
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    .resource-link {
+      background-color: #166534;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+
+    .resource-link:hover {
+      background-color: #047857;
+    }
+
+    .cta-section {
+      background: linear-gradient(135deg, #065f46, #166534);
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+      border-radius: 12px;
+      margin-top: 20px;
+    }
+
+    .cta-section h2 {
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    .cta-section p {
+      margin-bottom: 20px;
+    }
+
+    .cta-form {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .cta-form input {
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      width: 200px;
+    }
+
+    .cta-form button {
+      padding: 10px 20px;
+      background-color: #d1fae5;
+      color: #065f46;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .cta-form button:hover {
       background-color: #bbf7d0;
+    }
+
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #166534;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: none;
+      opacity: 1;
+      transition: opacity 0.3s;
+    }
+
+    .back-to-top.show {
+      display: block;
+    }
+
+    footer {
+      background-color: #065f46;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    .social-links a {
+      color: white;
+      margin: 0 10px;
+      font-size: 1.5rem;
+      text-decoration: none;
+    }
+
+    .social-links a:hover {
+      color: #d1fae5;
     }
 
     @media screen and (min-width: 768px) {
@@ -123,63 +297,201 @@
       main {
         margin-left: 200px;
       }
+      .hero {
+        height: 400px;
+      }
+      .hero-content h1 {
+        font-size: 3rem;
+      }
+      .hero-content p {
+        font-size: 1.4rem;
+      }
+      .cta-form {
+        flex-direction: row;
+      }
+      .cta-form input {
+        width: 300px;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .hero {
+        height: 200px;
+      }
+      .hero-content h1 {
+        font-size: 1.8rem;
+      }
+      .hero-content p {
+        font-size: 1rem;
+      }
+      .cta-form {
+        flex-direction: column;
+        align-items: center;
+      }
+      .cta-form input {
+        width: 100%;
+        max-width: 300px;
+      }
     }
   </style>
 </head>
 <body>
-
   <header>
-    <span class="menu-btn" onclick="toggleSidebar()">☰</span>
+    <span class="menu-btn" onclick="toggleSidebar()" aria-label="Open menu">☰</span>
     <h1>Eco Resources</h1>
     <div></div>
   </header>
+  <p>.</p>
+  <p>.</p>
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Empower Your Eco Journey</h1>
+      <p>Discover resources to live sustainably and make a difference!</p>
+    </div>
+  </section>
 
-  <aside id="sidebar">
-    <span class="close-btn" onclick="toggleSidebar()">✕</span>
-    <a href="index.html">🏠 Home</a>
-    <a href="about-eco.html">🌱 About</a>
-    <a href="eco-projects.html">📂 Projects</a>
-    <a href="eco-blog.html">📰 Blog</a>
-    <a href="eco-resources.html">📚 Resources</a>
-    <a href="get-involved.html">🤝 Get Involved</a>
-    <a href="eco-gallery.html">📸 Gallery</a>
-    <a href="contact.html">📬 Contact</a>
+  <aside id="sidebar" role="navigation">
+    <span class="close-btn" onclick="toggleSidebar()" aria-label="Close menu">✕</span>
+    <a href="index.html"><span class="nav-icon">🏠</span> Home</a>
+    <a href="about-eco.html"><span class="nav-icon">🌱</span> About</a>
+    <a href="eco-projects.html"><span class="nav-icon">📂</span> Projects</a>
+    <a href="eco-blog.html"><span class="nav-icon">📰</span> Blog</a>
+    <a href="eco-resources.html"><span class="nav-icon">📚</span> Resources</a>
+    <a href="get-involved.html"><span class="nav-icon">🤝</span> Get Involved</a>
+    <a href="eco-gallery.html"><span class="nav-icon">📸</span> Gallery</a>
+    <a href="contact.html"><span class="nav-icon">📬</span> Contact</a>
   </aside>
 
   <main>
-    <section>
+    <div class="search-bar">
+      <input type="text" id="resourceSearch" placeholder="Search resources..." onkeyup="filterResources()">
+    </div>
+
+    <section class="resource-section">
       <h2>📥 Downloadable Materials</h2>
-      <ul>
-        <li><a href="https://drive.google.com/file/d/1AJd5wfkGjCM2qhyegMwqQ8Cxc1sbSMWW/view?usp=drivesdk" class="resource-link" download>Beginner's Guide to Going Green (PDF)</a></li>
-        <li><a href=".trashed-1755635786-reduce reuse recycle poster_transcpr.jpg" class="resource-link" download>Reduce Reuse Recycle Poster</a></li>
-        
-      </ul>
+      <div class="resource-grid">
+        <div class="resource-card">
+          <span class="resource-icon">📄</span>
+          <h3>Beginner's Guide to Going Green</h3>
+          <p>A comprehensive PDF guide to start your sustainable journey.</p>
+          <a href="https://drive.google.com/file/d/1AJd5wfkGjCM2qhyegMwqQ8Cxc1sbSMWW/view?usp=drivesdk" class="resource-link" download>Download PDF</a>
+        </div>
+        <div class="resource-card">
+          <span class="resource-icon">🖼️</span>
+          <h3>Reduce Reuse Recycle Poster</h3>
+          <p>A vibrant poster to inspire eco-friendly habits.</p>
+          <a href="reduce reuse recycle poster.png" class="resource-link" download>Download Poster</a>
+        </div>
+      </div>
     </section>
 
-    <section>
+    <section class="resource-section">
       <h2>🔗 Useful Links</h2>
-      <ul>
-        <li><a href="https://www.earthday.org" class="resource-link" target="_blank">EarthDay.org</a></li>
-        <li><a href="https://www.plasticfreejuly.org" class="resource-link" target="_blank">Plastic Free July</a></li>
-        <li><a href="https://www.wwf.org" class="resource-link" target="_blank">World Wildlife Fund</a></li>
-      </ul>
+      <div class="resource-grid">
+        <div class="resource-card">
+          <span class="resource-icon">🌐</span>
+          <h3>EarthDay.org</h3>
+          <p>Learn about global environmental initiatives and events.</p>
+          <a href="https://www.earthday.org" class="resource-link" target="_blank">Visit Site</a>
+        </div>
+        <div class="resource-card">
+          <span class="resource-icon">🌐</span>
+          <h3>Plastic Free July</h3>
+          <p>Join the movement to reduce plastic waste.</p>
+          <a href="https://www.plasticfreejuly.org" class="resource-link" target="_blank">Visit Site</a>
+        </div>
+        <div class="resource-card">
+          <span class="resource-icon">🌐</span>
+          <h3>World Wildlife Fund</h3>
+          <p>Support conservation efforts worldwide.</p>
+          <a href="https://www.wwf.org" class="resource-link" target="_blank">Visit Site</a>
+        </div>
+      </div>
     </section>
 
-    <section>
+    <section class="resource-section">
       <h2>📘 Learn More</h2>
-      <ul>
-        <li><a href="https://youtu.be/ifrHogDujXw?si=OCYyImSC7SeLQQTA" class="resource-link" target="_blank">Climate Change Explained (Video)</a></li>
-        <li><a href="https://climatekids.nasa.gov" class="resource-link" target="_blank">NASA Climate Kids</a></li>
-        <li><a href="https://www.epa.gov/students" class="resource-link" target="_blank">EPA for Students</a></li>
-      </ul>
+      <div class="resource-grid">
+        <div class="resource-card">
+          <span class="resource-icon">📺</span>
+          <h3>Climate Change Explained</h3>
+          <p>A video breaking down the science of climate change.</p>
+          <a href="https://youtu.be/ifrHogDujXw?si=OCYyImSC7SeLQQTA" class="resource-link" target="_blank">Watch Video</a>
+        </div>
+        <div class="resource-card">
+          <span class="resource-icon">🌐</span>
+          <h3>NASA Climate Kids</h3>
+          <p>Fun, educational resources for young eco-warriors.</p>
+          <a href="https://climatekids.nasa.gov" class="resource-link" target="_blank">Visit Site</a>
+        </div>
+        <div class="resource-card">
+          <span class="resource-icon">🌐</span>
+          <h3>EPA for Students</h3>
+          <p>Environmental learning tools for students.</p>
+          <a href="https://www.epa.gov/students" class="resource-link" target="_blank">Visit Site</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <h2>Join Our Eco Community</h2>
+      <p>Stay updated with the latest eco tips, resources, and events!</p>
+      <form class="cta-form">
+        <input type="email" placeholder="Enter your email" required>
+        <button type="submit">Subscribe</button>
+      </form>
     </section>
   </main>
+
+  <button class="back-to-top" onclick="scrollToTop()" aria-label="Back to top">↑</button>
+
+  <footer>
+    <p>&copy; 2025 Eco Empowerment. All rights reserved.</p>
+    <div class="social-links">
+      <a href="https://twitter.com" target="_blank">🐦</a>
+      <a href="https://instagram.com" target="_blank">📷</a>
+      <a href="https://facebook.com" target="_blank">📘</a>
+    </div>
+  </footer>
 
   <script>
     function toggleSidebar() {
       document.getElementById('sidebar').classList.toggle('show');
     }
-  </script>
 
+    function filterResources() {
+      const input = document.getElementById('resourceSearch').value.toLowerCase();
+      const cards = document.querySelectorAll('.resource-card');
+
+      cards.forEach(card => {
+        const title = card.querySelector('h3').textContent.toLowerCase();
+        const description = card.querySelector('p').textContent.toLowerCase();
+        if (title.includes(input) || description.includes(input)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    window.addEventListener('scroll', function() {
+      const backToTop = document.querySelector('.back-to-top');
+      if (window.scrollY > 300) {
+        backToTop.classList.add('show');
+      } else {
+        backToTop.classList.remove('show');
+      }
+    });
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    document.querySelector('.cta-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thank you for subscribing! Stay tuned for eco updates.');
+      this.reset();
+    });
+  </script>
 </body>
 </html>
