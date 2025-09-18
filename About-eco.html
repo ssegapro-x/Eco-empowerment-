@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="CONTENT-TYPE"content="text/html;chartset=UTF-8">
+  <meta http-equiv="X-UA-Compatible"content="ie=edge">
+   <title>About Us - Eco Empowerment</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background-color: #f0fdf4;
+      color: #333;
+    }
+
+    header {
+      background-color: #166534;
+      color: white;
+      padding: 15px 20px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header .menu-btn {
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    aside {
+  background-color: #065f46;
+  color: white;
+  width: 200px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: -220px;
+  padding: 20px 0;
+  transition: left 0.3s;
+  z-index: 2000;
+  box-shadow: 2px 0 6px rgba(0,0,0,0.2);
+}
+aside .close-btn {
+  display: block;
+  font-size: 24px;
+  text-align: left;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #047857;
+}
+
+
+    aside a {
+      display: block;
+      padding: 10px 20px;
+      color: white;
+      text-decoration: none;
+    }
+
+    aside a:hover {
+      background-color: #047857;
+    }
+
+    aside.show {
+      left: 0;
+    }
+aside.show {
+  left: 0;
+}
+
+    main {
+      margin-top: 60px;
+      padding: 20px;
+      margin-left: 0;
+      transition: margin-left 0.3s;
+    }
+
+    .section {
+      background-color: white;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .section ul {
+      padding-left: 20px;
+    }
+
+    @media screen and (min-width: 768px) {
+      aside {
+        left: 0;
+      }
+      main {
+        margin-left: 200px;
+      }
+      .menu-btn {
+        display: none;
+      }
+    }
+    .faq {
+  margin-bottom: 10px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  background: white;
+}
+
+.faq-question {
+  width: 100%;
+  text-align: left;
+  background-color: #047857;
+  color: white;
+  border: none;
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  outline: none;
+}
+
+.faq-answer {
+  display: none;
+  padding: 12px 16px;
+  background-color: #f9f9f9;
+  border-top: 1px solid #ccc;
+}
+
+.faq.open .faq-answer {
+  display: block;
+}
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <span class="menu-btn" onclick="toggleSidebar()">☰</span>
+    <h1>About Us</h1>
+    <div></div>
+  </header>
+
+    <aside id="sidebar">
+    <span class="close-btn" onclick="toggleSidebar()">✕</span>
+    <a href="index.html">🏠 Home</a>
+    <a href="about-eco.html">🌱 About</a>
+    <a href="eco-projects.html">📂 Projects</a>
+    <a href="eco-blog.html">📰 Blog</a>
+    <a href="eco-resources.html">📚 Resources</a>
+    <a href="get-involved.html">🤝 Get Involved</a>
+    <a href="eco-gallery.html">📸 Gallery</a>
+    <a href="contact.html">📬 Contact</a>
+  </aside>
+
+  <main>
+    <section class="section">
+      <h2>Who We Are</h2>
+      <p>Eco Empowerment is a youth-led movement made up of passionate students who care deeply about the environment. We work together to raise awareness, run sustainability projects, and inspire others to protect the planet.</p>
+    </section>
+
+    <section class="section">
+      <h3>Our Goals</h3>
+      <ul>
+        <li>🌿 Educate peers about environmental issues</li>
+        <li>🌍 Lead and participate in eco-projects</li>
+        <li>💬 Advocate for greener school and community policies</li>
+        <li>🌱 Connect with other eco-conscious youth</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h3>Meet the Team</h3>
+      <p>We are a group of students from different classes and schools, each with a unique role:</p>
+      <ul>
+<h3>                🧠 Project Coordinators</h3>
+        <li>SSEGAWA PROSPER, SSERWANJA KEVIN HOPE, SSESANGA REAGAN, MWESIGWA JEDIDDAH
+</li>
+<h3>       🎨 Creative Designers</h3>
+        <li>NAMUDDU KISAKYE FLORENCE
+          <li>
+            NUWAHEREZA CATGERINE</li>
+          <li>NTWATWA ERIA JOSEPH</li>
+          <li>LUBEGA FRED</li>
+          <li>KAKUMBA SUHAIRI</li>
+          <h3> 👨‍💻 Graphic Designers</h3>
+          <li>AINAMAANI IGINITIOUS</li>
+          <li>AKANYIJUKA IGNATIUS</li>
+          <li>KABANDA ALFRED ELIJAH</li>
+          <li>KAKOOZA REUBEN</li>   
+          <li>BUKENYA DAVIS KISAKYE</li>
+        </li>
+        <h3>📢 Awareness Campaigners</h3>
+        <li>APOLOT MARY GRACE</li>
+        <li>MUWONGE KEITH PATRICK</li>
+        <li>MWESIGWA MISARCH</li>
+        <li>NAMWANJE ALICE</li>
+        <h3>🌾 Green Action Volunteers</h3>
+        <li>NAMUWANGIZI MARTHA</li>
+        <li>OKWASI TRAVOUR MARK</li>
+        <li>MUTYABA MORGAN</li>
+        <li>MAYANJA GEORGE WILLIAM</li>
+        <li>MATE DAVIS</li>
+        <LI>LUZINDA ERIA PAUL SHADRACK</LI>
+      </ul>
+      
+    </section>
+
+    <section class="section">
+      <h3>Our Story</h3>
+      <p>Eco Empowerment started as a small club in school — planting trees and picking litter. Over time, we grew into a strong group of changemakers organizing campaigns, holding eco-talks, and involving our community in real impact.</p>
+    </section>
+    <h2>❓ Frequently Asked Questions</h2>
+
+<div class="faq">
+  <button class="faq-question">What is Eco Empowerment about?</button>
+  <div class="faq-answer">
+    <p>We’re a school-based team passionate about environmental education, action, and awareness.</p>
+  </div>
+</div>
+
+<div class="faq">
+  <button class="faq-question">How can I get involved?</button>
+  <div class="faq-answer">
+    <p>Visit our <a href="get-involved.html">Get Involved</a> page to join events, donate materials, or become a volunteer!</p>
+  </div>
+</div>
+
+<div class="faq">
+  <button class="faq-question">Can I share your posters and guides?</button>
+  <div class="faq-answer">
+    <p>Yes! All our resources are free to download and share for non-commercial use.</p>
+  </div>
+</div>
+
+<div class="faq">
+  <button class="faq-question">Where do you operate?</button>
+  <div class="faq-answer">
+    <p>We’re based in St. Kizito S.S.S Katikamu-Kisule, but our impact reaches the wider community.</p>
+  </div>
+</div>
+
+<div class="faq">
+  <button class="faq-question">How do I contact you?</button>
+  <div class="faq-answer">
+    <p>Go to our <a href="contact.html">Contact Page</a> to message us directly.</p>
+  </div>
+</div>
+
+  </main>
+
+<script>
+  function toggleSidebar() {
+    document.getElementById('sidebar').classList.toggle('show');
+  }
+</script>
+<script>
+  const faqs = document.querySelectorAll('.faq-question');
+
+  faqs.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const faq = btn.parentElement;
+      faq.classList.toggle('open');
+    });
+  });
+</script>
+
+
+</body>
+</html>
