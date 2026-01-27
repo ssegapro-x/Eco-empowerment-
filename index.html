@@ -11,6 +11,92 @@
   <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <style>
+.ai-chatbot {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #166534;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    z-index: 1000;
+  }
+
+  .chat-window {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 300px;
+    height: 400px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    display: none;
+    flex-direction: column;
+    z-index: 1000;
+    border: 2px solid #166534;
+  }
+
+  .chat-header {
+    background: #166534;
+    color: white;
+    padding: 15px;
+    border-radius: 10px 10px 0 0;
+    font-weight: bold;
+  }
+
+  .chat-messages {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    font-size: 14px;
+  }
+
+  .chat-input {
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    display: flex;
+  }
+
+  .chat-input input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-right: 5px;
+  }
+
+  .chat-input button {
+    background: #166534;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .message {
+    margin: 8px 0;
+    padding: 8px 12px;
+    border-radius: 8px;
+    max-width: 80%;
+  }
+
+  .user-message {
+    background: #bbf7d0;
+    margin-left: auto;
+  }
+
+  .bot-message {
+    background: #f0f0f0;
+  }
     :root {
       --bg-color: #f0fdf4;
       --text-color: #333;
@@ -393,7 +479,20 @@
     <a href="eco-gallery.html">📸 Gallery</a>
     <a href="contact.html">📬 Contact</a>
   </aside>
+<div class="ai-chatbot" onclick="toggleChat()">🤖</div>
 
+<div class="chat-window" id="chatWindow">
+  <div class="chat-header">🌱 Eco Assistant</div>
+  <div class="chat-messages" id="chatMessages">
+    <div class="message bot-message">
+      Hello! I'm your eco assistant. Ask me about sustainability, recycling tips, or environmental facts!
+    </div>
+  </div>
+  <div class="chat-input">
+    <input type="text" id="chatInput" placeholder="Ask about eco topics..." onkeypress="handleKeyPress(event)">
+    <button onclick="sendMessage()">Send</button>
+  </div>
+</div>
   <main id="main-content">
     <section class="hero">
       <canvas class="hero-canvas" id="leavesCanvas"></canvas>
@@ -622,6 +721,82 @@
     }
 
     initMap();
+function toggleChat() {
+    const chatWindow = document.getElementById('chatWindow');
+    chatWindow.style.display = chatWindow.style.display === 'flex' ? 'none' : 'flex';
+  }
+
+  function handleKeyPress(event) {
+    if (event.key === 'Enter') {
+      sendMessage();
+    }
+  }
+
+  async function sendMessage() {
+    const input = document.getElementById('chatInput');
+    const messagesDiv = document.getElementById('chatMessages');
+    const userMessage = input.value.trim();
+    
+    if (!userMessage) return;
+    
+    // Add user message
+    const userMsgDiv = document.createElement('div');
+    userMsgDiv.className = 'message user-message';
+    userMsgDiv.textContent = userMessage;
+    messagesDiv.appendChild(userMsgDiv);
+    
+    input.value = '';
+    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    
+    // Show thinking indicator
+    const thinkingDiv = document.createElement('div');
+    thinkingDiv.className = 'message bot-message';
+    thinkingDiv.textContent = 'Thinking...';
+    thinkingDiv.id = 'thinking';
+    messagesDiv.appendChild(thinkingDiv);
+    
+    try {
+      // Option 1: Simple rule-based responses (no API needed)
+      const response = getEcoResponse(userMessage);
+      
+      // Remove thinking indicator
+      document.getElementById('thinking').remove();
+      
+      // Add bot response
+      const botMsgDiv = document.createElement('div');
+      botMsgDiv.className = 'message bot-message';
+      botMsgDiv.innerHTML = response;
+      messagesDiv.appendChild(botMsgDiv);
+      
+    } catch (error) {
+      document.getElementById('thinking').remove();
+      const errorDiv = document.createElement('div');
+      errorDiv.className = 'message bot-message';
+      errorDiv.textContent = 'Sorry, I encountered an error. Try asking about recycling, composting, or energy saving!';
+      messagesDiv.appendChild(errorDiv);
+    }
+    
+    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+  }
+
+  function getEcoResponse(question) {
+    const lowerQ = question.toLowerCase();
+    
+    // Rule-based responses
+    if (lowerQ.includes('recycle') || lowerQ.includes('recycling')) {
+      return '♻️ <b>Recycling Tips:</b><br>1. Rinse containers before recycling<br>2. Check local guidelines<br>3. Keep cardboard dry<br>4. No plastic bags in curbside bins<br>5. Flatten boxes to save space';
+    } else if (lowerQ.includes('compost') || lowerQ.includes('composting')) {
+      return '🍂 <b>Composting Guide:</b><br><b>DO compost:</b> Fruit/veggie scraps, coffee grounds, eggshells, leaves<br><b>DON\'T compost:</b> Meat, dairy, oils, diseased plants';
+    } else if (lowerQ.includes('energy') || lowerQ.includes('save energy')) {
+      return '⚡ <b>Energy Saving Tips:</b><br>1. Use LED bulbs<br>2. Unplug unused devices<br>3. Wash clothes in cold water<br>4. Install a programmable thermostat<br>5. Use natural light when possible';
+    } else if (lowerQ.includes('tree') || lowerQ.includes('plant')) {
+      return '🌳 <b>Tree Planting Tips:</b><br>1. Plant native species<br>2. Water deeply but infrequently<br>3. Use mulch to retain moisture<br>4. Plant in fall/spring<br>5. Consider tree mature size';
+    } else if (lowerQ.includes('hello') || lowerQ.includes('hi')) {
+      return 'Hello! I\'m here to help with environmental questions. Try asking about: recycling, composting, energy saving, or tree planting!';
+    } else {
+      return 'I\'m still learning! For now, I can answer questions about:<br>• Recycling<br>• Composting<br>• Energy conservation<br>• Tree planting<br>• Water saving<br>Try asking about one of these topics!';
+    }
+  }
   </script>
 </body>
 </html>
